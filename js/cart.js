@@ -1,7 +1,7 @@
 let cartWrapper = document.querySelector('.cart-wrapper');
-
 let cartButtons = document.querySelectorAll('[data-cart]');
 
+//--------------------damatebis gilaki-------------------------
 cartButtons.forEach(function(item){
 	item.addEventListener("click", function(){
 		let card = this.closest('.card');
@@ -10,6 +10,8 @@ cartButtons.forEach(function(item){
 		let counter = card.querySelector('[data-counter]').innerText;
 		let itemInCart = cartWrapper.querySelector(`[data-id="${id}"]`);
 
+		// --------------------shemowmeba aristuara es nivti ukve kalatashi tu aris 
+		// agarvamatebt da mxolod raodenobas vzrdit,else vamatebt-------------------------
 		if(itemInCart){
 			let counterElement = itemInCart.querySelector('[data-counter]');
 			counterElement.innerText = parseInt(counterElement.innerText) + parseInt(counter);
@@ -20,6 +22,7 @@ cartButtons.forEach(function(item){
 			let weight = card.querySelector('.price__weight').innerText;
 			let price = card.querySelector('.price__currency').innerText;
 
+			//-------------------chavardnili nivtis dizaini--------------------------
 			let cartItemHTML = `<div class="cart-item" data-id="${id}">
 									<div class="cart-item__top">
 										<div class="cart-item__img">
@@ -48,18 +51,18 @@ cartButtons.forEach(function(item){
 										</div>
 									</div>
 								</div>`;
-
 			cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);
-
 		}
 
 		toggleCartStatus();
 
+		//--------------------"ganuleba"-------------------------
 		counterElement.innerText = 1;
 
 	});
 });
 
+	//--------------------togglecartstatus-------------------------
 function toggleCartStatus(){
 	if(cartWrapper.querySelectorAll('.cart-item').length > 0){
 		document.querySelector('[data-cart-empty]').classList.add('none');
@@ -71,9 +74,10 @@ function toggleCartStatus(){
 		document.querySelector('#order-form').classList.add('none');
 	}
 
-let totalPrice = 0;
+	//------------------jamis datva-------------------------
+	let totalPrice = 0;
 
-cartWrapper.querySelectorAll('.cart-item').forEach(function(item){
+	cartWrapper.querySelectorAll('.cart-item').forEach(function(item){
 	let counter = item.querySelector('[data-counter]').innerText;
 	let priceOneItem = item.querySelector('.price__currency').innerText;
 	let price = parseInt(counter) * parseInt(priceOneItem);
@@ -81,7 +85,8 @@ cartWrapper.querySelectorAll('.cart-item').forEach(function(item){
 })
 	document.querySelector('.total-price').innerText = totalPrice;
 
-	if(totalPrice >= 1000){
+	//--------------------miwodeba ufaso tu fasiani-------------------------
+	if(totalPrice >= 50){
 		document.querySelector('.delivery-cost').classList.remove('none');
 		document.querySelector('.delivery-cost-free').classList.add('none');
 	}else{

@@ -1,4 +1,4 @@
-
+//--------------------plus minustan mushaoba -------------------------
 let body = document.querySelector('body');
 
 body.addEventListener('click', function(event){
@@ -12,6 +12,8 @@ body.addEventListener('click', function(event){
 			if(parseInt(counter.innerText) >1){
 				counter.innerText = --counter.innerText;
 			}else if(parseInt(counter.innerText) === 1 && counter.closest('.cart-wrapper')){
+				
+				//kalatidan amoshla tuki raodenobas 0 mde chamoviyvant
 				counter.closest('.cart-item').remove();
 
 		}
