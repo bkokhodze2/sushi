@@ -23,7 +23,7 @@ cartButtons.forEach(function(item){
 			let price = card.querySelector('.price__currency').innerText;
 
 			//-------------------chavardnili nivtis dizaini--------------------------
-			let cartItemHTML = `<div class="cart-item" data-id="${id}">
+			let cartItemHTML = `<div class="cart-item animate__fadeInDown animate__animated" data-id="${id}">
 									<div class="cart-item__top">
 										<div class="cart-item__img">
 											<img src="${imgSrc}" alt="">
